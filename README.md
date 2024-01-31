@@ -27,7 +27,7 @@ An important note is that it takes the average NOT the actual number of pixels m
 - Data Export: Users can export all speed data to a CSV file and can save the Real-time Graph as a PNG file..
 ## Requirements
 
-The script is packaged as an executable (.exe), eliminating the need for users to download additional packages or dependencies.
+The script is packaged as an executable (.exe), eliminating the need for users to download additional packages. However, the program is dependent on its _internal folder in order to run. 
 ## Usage and Details
 
 Select Video File:  
@@ -50,11 +50,11 @@ Video Playback:
 
 CSV File:   
 - The CSV file will contain columns for Frame, Pixels/Frame, Seconds Elapsed, and Average Pixel/Frame. 
-- When saved, it will be named "speed_data - [video_filename].png."
+- When saved, it will be named "speed_data - [video_filename].png" to the current working directory.
 
 Graph Image:    
 - The graph image displays the speed (pixels/frame) over time (frames). 
-- When saved, it will be named "speed_graph - [video_filename].png."
+- When saved, it will be named "speed_graph - [video_filename].png" to the current working directory.
 
 Quitting:   
 - Press 'q' to quit the script early. This will interupt any processes however data collection will be saved.
@@ -63,11 +63,11 @@ Export Data and Save Graph:
 - Upon completion or quit, a prompt will ask if you want to export data and save the graph. Choose "Yes" to export speed data to a CSV file and save the graph as a png image. 
 - If a file with the same name already exists, a prompt will appear asking to overwrite the existing file with the current data.
 ## Bugs and Unintended Interactions
-- When the program is first opened it will open an empty terminal and may take up to 30 seconds to run while in a network drive. This is due to how PyInstaller packs python libraries, and can be optimized further if needed. A temporary fix would be to copy the program and its build and _internal folders into a local drive, this will make it start significantly faster.
+- When the program is first opened it will open an empty terminal and may take up to 30 seconds to run while in a network drive. This is due to how PyInstaller packs python libraries, and can be optimized further if needed. A temporary fix would be to copy the program and its build and _internal folders into a local drive, this will make it run significantly faster.
 
 
-- If the user clicks out of the ROI selection window then brings it back to focus, an ROI selection cannot be made. A failsafe exists by pressing 'c' and the ROI selection window will be forcibly terminated and ends the script. 
+- If the user clicks out of the ROI selection window then brings it back to focus, an ROI selection cannot be made. Due to this, a failsafe exists by pressing 'c' and the ROI selection window will be forcibly terminated and ends the script. 
 
 - The user cannot q to quit or space to pause/resume if the graph window is in focus. The user must first click into either the results or video window to quit or pause/resume. 
 
-- If multiple instances of the program is opened, it will never start up, but the terminal windows will still be visible.
+- If multiple instances of the program are opened, all instances will eventually crash.
