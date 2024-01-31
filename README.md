@@ -15,7 +15,7 @@ For speed analysis, the program utilizes the Lucas-Kanade Optical Flow algorithm
 The Lucas-Kanade optical flow algorithm is a method for estimating the motion vector (optical flow) of pixels between two consecutive frames in a video sequence. Further documentation can be found here:
 https://docs.opencv.org/3.4/db/d7f/tutorial_js_lucas_kanade.html
 
-An important note is that it takes the average NOT the actual number of pixels moved, e.g a larger ROI selection on the same video in the same location will yield a smaller pixel/frame speed.
+An important note is that it takes the average NOT the actual number of pixels moved, e.g a larger ROI selection on the same video in the same location will yield a smaller pixel/frame speed, however if the background is static, the shape of the graph and comparability of the speeds to one other will always stay the same.
 ## Features
 
 - ROI Selection: Users can choose a specific region within the video to analyze for motion speed. The ROI will remain visible while the video plays.
@@ -63,7 +63,7 @@ Export Data and Save Graph:
 - Upon completion or quit, a prompt will ask if you want to export data and save the graph. Choose "Yes" to export speed data to a CSV file and save the graph as a png image. 
 - If a file with the same name already exists, a prompt will appear asking to overwrite the existing file with the current data.
 ## Bugs and Unintended Interactions
-- When the program is first opened it will open an empty terminal and may take up to 30 seconds to run while in a network drive. This is due to how PyInstaller packs python libraries, and can be optimized further if needed. A temporary fix would be to copy the program into a local drive, this will make it start significantly faster, however is still not an instant response.
+- When the program is first opened it will open an empty terminal and may take up to 30 seconds to run while in a network drive. This is due to how PyInstaller packs python libraries, and can be optimized further if needed. A temporary fix would be to copy the program and its build and _internal folders into a local drive, this will make it start significantly faster.
 
 
 - If the user clicks out of the ROI selection window then brings it back to focus, an ROI selection cannot be made. A failsafe exists by pressing 'c' and the ROI selection window will be forcibly terminated and ends the script. 
